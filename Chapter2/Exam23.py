@@ -3,9 +3,7 @@ from bs4 import BeautifulSoup
 
 url="https://phongtro123.com/tinh-thanh/da-nang"
 html = requests.get(url).text
-
 soup = BeautifulSoup(html, 'html5lib')
-fixed_html = soup.prettify()
 
 TieuDe = soup.find_all("h3",class_="post-title")
 DonGia = soup.find_all("span",class_="post-price")

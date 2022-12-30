@@ -4,11 +4,10 @@ import os
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlsplit
 
-file_store="E:/Files_Crawl/"
-
 links_seen=[]
-url_fileRSS="https://vnexpress.net/rss/the-thao.rss"
-domain= urlsplit(url_fileRSS).netloc
+links_todo = ["https://vnexpress.net/"]
+domain= urlsplit(links_todo[0]).netloc
+file_store="E:/Files_Crawl/"
 
 def url_to_file_name(url):
     url = str(url).strip().replace(' ', '_')
@@ -21,33 +20,42 @@ def download(url):
             the_html.write(requests.get(url).text)
     
 def visit(url):
-    print("** Now visiting:", url)    
-    html = requests.get(url).text
-    html_soup = BeautifulSoup(html, "html.parser")
-    download(url)
-
-
-def getURL_from_fileRSS(url_fileRSS):
-    xml = requests.get(url_fileRSS).text
-    links=re.findall('<a href="(.*?)"', xml)
+    global links_todo
     
-    links_todo=[]    
-    for link_url in links:
+    links_seen.append(url)
+    print("** Now visiting:", url)
+    
+    html = requests.get(url).text
+    html_soup = BeautifulSoup(html, "html5lib")
+    download(url)
+    
+    Count=0
+    for link in html_soup.find_all("a"):
+        link_url = link.get("href")  
         if link_url is None:
-            continue      
-        
-        if urlsplit(link_url).netloc != domain:
             continue
         
-        if link_url in links_todo:
+        full_url = urljoin(url, link_url)
+        
+        if urlsplit(full_url).netloc != domain:
+            continue
+
+        if urlsplit(full_url).query !="":
             continue
         
-        links_todo.append(link_url)
+        if full_url in links_todo or full_url in links_seen:
+            continue
+        
+        Count=Count+1
+        links_todo.append(full_url)
 
-    return links_todo
+    print(" + ",Count, "new link(s) found")
+    print(" + ",len(links_seen), "link(s) seen/", len(links_todo), "link(s) need to do.")
+    
+    print("Enter to continues, ...")
+    input()
 
 
-links_todo = getURL_from_fileRSS(url_fileRSS)
 while links_todo:
     url_to_visit = links_todo.pop()
-    new_links = visit(url_to_visit)    
+    visit(url_to_visit)
