@@ -1,21 +1,26 @@
 import requests
-from bs4 import BeautifulSoup
+import re
+import os
 
 url="https://phongtro123.com/tinh-thanh/da-nang"
 html = requests.get(url).text
 
-soup = BeautifulSoup(html, 'html5lib')
-fixed_html = soup.prettify()
 
-TieuDe = soup.find_all("h3",class_="post-title")
-DonGia = soup.find_all("span",class_="post-price")
-DienTich = soup.find_all("span",class_="post-acreage")
-DiaChi = soup.find_all("span",class_="post-location")
-NgayDang = soup.find_all("time",class_="post-time")
+TieuDe=re.findall('<h3 class="post-title"><a.*?">(.*?)</a></h3>', html)
+DonGia=re.findall('<span class="post-price">(.*?)</span>', html)
+DienTich=re.findall('<span class="post-acreage">(.*?)</span>', html)
+DiaChi=re.findall('<span class="post-location"><a.*?">(.*?)</a></span>', html)
+NgayDang=re.findall('<time class="post-time" title=.*?">(.*?)</time>', html)
 
+str=""
 for i in range(len(TieuDe)):
-    print(TieuDe[i].text)
-    print(" - " + DonGia[i].text)
-    print(" - " + DienTich[i].text)
-    print(" - " + DiaChi[i].text)
-    print(" - " + NgayDang[i].text)
+    str+=TieuDe[i] + "\n"
+    str+="- " + DonGia[i] + "\n"
+    str+="- " + DienTich[i] + "\n"
+    str+="- " + DiaChi[i] + "\n"
+    str+="- " + NgayDang[i] + "\n"
+    
+    
+filename=os.path.join("E:/Files_Crawl", "PhongTro123.txt")    
+with open(filename, 'w',encoding='utf-8') as f:
+    f.write(str)

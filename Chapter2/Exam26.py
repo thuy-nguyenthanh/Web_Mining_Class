@@ -56,6 +56,6 @@ def visit(url):
     input()
 
 
-while links_todo is not None:
+while links_todo:
     url_to_visit = links_todo.pop()
     new_links = visit(url_to_visit)
