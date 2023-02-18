@@ -1,24 +1,29 @@
-import re
-import os
 import requests
+import os
+from bs4 import BeautifulSoup
 
-url="https://phongtro123.com/tinh-thanh/da-nang/"
+url="https://phongtro123.com/tinh-thanh/da-nang"
 html = requests.get(url).text
+#Tối ưu hóa code HTML bằng thư viện html5lib 
+soup = BeautifulSoup(html, 'html5lib')
 
-TieuDe=re.findall('<h3 class="post-title"><a.*?">(.*?)</a></h3>', html)
-DonGia=re.findall('<span class="post-price">(.*?)</span>', html)
-DienTich=re.findall('<span class="post-acreage">(.*?)</span>', html)
-DiaChi=re.findall('<span class="post-location"><a.*?">(.*?)</a></span>', html)
-NgayDang=re.findall('<time class="post-time" title=.*?">(.*?)</time>', html)
+#Sử dụng thư viện BeautifulSoup để bóc tách dữ liệu
+TieuDe = soup.find_all("h3",class_="post-title")
+DonGia = soup.find_all("span",class_="post-price")
+DienTich = soup.find_all("span",class_="post-acreage")
+DiaChi = soup.find_all("span",class_="post-location")
+NgayDang = soup.find_all("time",class_="post-time")
 
 str=""
 for i in range(len(TieuDe)):
-    str+=TieuDe[i] + "\n"
-    str+="- " + DonGia[i] + "\n"    
-    str+="- " + DienTich[i] + "\n"
-    str+="- " + DiaChi[i] + "\n"
-    str+="- " + NgayDang[i] + "\n"
-    
+    str+=TieuDe[i].text + "\n"
+    str+="- " + DonGia[i].text + "\n"    
+    str+="- " + DienTich[i].text + "\n"
+    str+="- " + DiaChi[i].text + "\n"
+    str+="- " + NgayDang[i].text + "\n"
+print(str)
+
+#Ghi nội dung vào file
 filename=os.path.join("E:/Files_Crawl", "PhongTro123.txt")    
 with open(filename, 'w',encoding='utf-8') as f:
     f.write(str)
