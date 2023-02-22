@@ -2,60 +2,59 @@ import requests
 import re
 import os
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlsplit
+from urllib.parse import urlsplit
 
-links_seen=[]
-links_todo = ["https://vnexpress.net/"]
-domain= urlsplit(links_todo[0]).netloc
 file_store="E:/Files_Crawl/"
+
+url_fileRSS="https://vnexpress.net/rss/the-thao.rss"
+domain= urlsplit(url_fileRSS).netloc
 
 def url_to_file_name(url):
     url = str(url).strip().replace(' ', '_')
-    return re.sub(r'(?u)[^-\w.]', '', url) + ".html"
+    return re.sub(r'(?u)[^-\w.]', '', url) + ".txt"
 
-def download(url):
+def save_toTXT(url):
     print("Saving file,...")
-    filename=os.path.join(file_store, url_to_file_name(url))    
-    with open(filename, 'w',encoding='utf-8') as the_html:
-            the_html.write(requests.get(url).text)
-    
-def visit(url):
-    global links_todo
-    
-    links_seen.append(url)
-    print("** Now visiting:", url)
     
     html = requests.get(url).text
-    html_soup = BeautifulSoup(html, "html5lib")
-    download(url)
+    soup = BeautifulSoup(html, "html5lib")
     
-    Count=0
-    for link in html_soup.find_all("a"):
-        link_url = link.get("href")  
+    try:
+        Title = soup.find("h1",class_="title-detail")    
+        Desc = soup.find("p",class_="description")    
+        Detail = soup.find("article",class_="fck_detail")
+        Content= Title.text + "\n" + Desc.text + "\n" + Detail.text
+        
+        filename=os.path.join(file_store, url_to_file_name(url))    
+        with open(filename, 'w',encoding='utf-8') as f:
+            f.write(Content)
+    finally:
+        return
+                
+def visit(url):
+    print("** Now visiting:", url)       
+    save_toTXT(url)
+
+def getURL_from_fileRSS(url_fileRSS):
+    xml = requests.get(url_fileRSS).text
+    links=re.findall('<a href="(.*?)"', xml)
+    
+    links_todo=[]    
+    for link_url in links:
         if link_url is None:
+            continue      
+        
+        if urlsplit(link_url).netloc != domain:
             continue
         
-        full_url = urljoin(url, link_url)
-        
-        if urlsplit(full_url).netloc != domain:
-            continue
-
-        if urlsplit(full_url).query !="":
+        if link_url in links_todo:
             continue
         
-        if full_url in links_todo or full_url in links_seen:
-            continue
-        
-        Count=Count+1
-        links_todo.append(full_url)
+        links_todo.append(link_url)
 
-    print(" + ",Count, "new link(s) found")
-    print(" + ",len(links_seen), "link(s) seen/", len(links_todo), "link(s) need to do.")
-    
-    print("Enter to continues, ...")
-    input()
+    return links_todo
 
-
+links_todo = getURL_from_fileRSS(url_fileRSS)
 while links_todo:
     url_to_visit = links_todo.pop()
     visit(url_to_visit)
