@@ -5,7 +5,7 @@ headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537
 
 def weather(city):
     city=city.replace(" ","+")
-    res=requests.get(f'https://www.google.com/search?q=weather+'+city+'&oq=weather+Danang&aqs=chrome..69i57.9505j0j7&sourceid=chrome&ie=UTF-8',headers=headers)
+    res=requests.get(f'https://www.google.com/search?q=weather+'+city+'&oq=weather+'+city+'&sourceid=chrome&ie=UTF-8',headers=headers)
     print("Searching ...\n")
     soup=BeautifulSoup(res.text,'html.parser')
     location=soup.select('#wob_loc')[0].getText().strip()

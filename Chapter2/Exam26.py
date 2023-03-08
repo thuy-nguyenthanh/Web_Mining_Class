@@ -3,9 +3,8 @@ import re
 import os
 from urllib.parse import urlsplit
 
-file_store="E:/Files_Crawl/"
-
-url_fileRSS="https://vnexpress.net/rss/the-thao.rss"
+file_store="D:/Files_Crawl/"
+url_fileRSS="https://vtc.vn/rss/suc-khoe.rss"
 
 domain= urlsplit(url_fileRSS).netloc
 
@@ -27,7 +26,8 @@ def visit(url):
 
 def getURL_from_fileRSS(url_fileRSS):
     xml = requests.get(url_fileRSS).text
-    links=re.findall('<a href="(.*?)"', xml)    
+    #links=re.findall('<a href="(.*?)"', xml)    
+    links=re.findall('<link>(.*?)</link>', xml)    
     
     links_todo=[]    
     for link_url in links:
@@ -46,6 +46,9 @@ def getURL_from_fileRSS(url_fileRSS):
 
 
 links_todo = getURL_from_fileRSS(url_fileRSS)
+#print(links_todo)
+
 while links_todo:
     url_to_visit = links_todo.pop()
+    print(url_to_visit)
     new_links = visit(url_to_visit)    
