@@ -1,9 +1,13 @@
 import nltk
 import re
 import os
+
+nltk.download('stopwords')
+nltk.download('punkt')
+
+
 from nltk.probability import FreqDist
 from nltk.corpus import stopwords
-import matplotlib
 
 
 #Read file text
