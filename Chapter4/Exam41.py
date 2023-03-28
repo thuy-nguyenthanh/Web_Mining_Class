@@ -1,7 +1,10 @@
 import pandas as pd
 
 # Danh sách các từ trong văn bản
-text="We are learning Natural Language Processing"
+# text="We are learning Natural Language Processing"
+
+text="both good and distinctive good but not distinctive distinctive but not good or neither good nor distinctive"
+
 words=text.split()
 
 # Tạo DataFrame từ danh sách các từ

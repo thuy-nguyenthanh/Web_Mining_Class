@@ -2,7 +2,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 import nltk
 
 # Text
-text = "The quick brown fox jumps over the lazy dog. And Never jump over the lazy dog quickly"
+text = "The quick brown fox jumps over the lazy dog And Never jump over the lazy dog quickly"
 
 #Tokenization
 sentences = nltk.sent_tokenize(text)
