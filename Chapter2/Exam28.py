@@ -6,6 +6,7 @@ from urllib.parse import urljoin, urlsplit
 
 links_seen=[]
 links_todo = ["https://vnexpress.net/"]
+
 domain= urlsplit(links_todo[0]).netloc
 file_store="E:/Files_Crawl/"
 
