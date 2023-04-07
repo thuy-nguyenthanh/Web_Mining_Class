@@ -1,0 +1,44 @@
+AI chatbot ChatGPT blocked in Italy over privacy concerns
+Italy has become the first Western country to block artificial intelligence chatbot ChatGPT over data privacy concerns.
+
+Key points:
+The Italian watchdog cited concerns about ChatGPT's massive collection and processing of personal data
+OpenAI has 20 days to respond with remedies or could risk a fine
+OpenAI says it has disabled ChatGPT for users in Italy
+The Italian data-protection authority temporarily banned the chatbot as it investigated a possible violation of privacy rules.
+
+Italy's privacy watchdog, Garante, said it was taking provisional action "until ChatGPT respects privacy", including temporarily limiting the company from processing Italian users' data.
+
+It questioned whether OpenAI had legal justification for its "massive collection and processing of personal data" used to train the platform's algorithms.
+
+The Italian regulator also accused OpenAI of failing to check the age of ChatGPT's users, who are supposed to be aged 13 or above.
+
+ChatGPT, created by US-start up Open AI and backed by Microsoft, is known for its ability to generate essays, songs, exams and news articles from brief prompts.
+
+OpenAI said it had disabled ChatGPT for users in Italy following the government's request.
+
+Concerns grow about AI boom
+The ban came just days after a group of more than 1000 artificial intelligence experts, including Tesla CEO Elon Musk, called for companies such as OpenAI to pause the development of AI models in an open letter that cited potential risks to society.
+
+ChatGPT has set off a tech craze since its release in November last year, prompting rivals to launch similar products and companies to integrate it or similar technologies into their products.
+
+Italy's restriction affects the web version of ChatGPT, popularly used as a writing assistant.
+
+Alp Toker, director of the advocacy group NetBlocks which monitors internet access worldwide, said Italy's action was "the first nation-scale restriction of a mainstream AI platform by a democracy".
+
+The chatbot is also unavailable in mainland China, Hong Kong, Iran, Russia and parts of Africa where residents cannot create OpenAI accounts.
+
+The Italian watchdog said OpenAI must report within 20 days what measures it has taken to ensure the privacy of users' data or face a fine of up to either 20 million Euros ($32.5 million) or 4 per cent of annual global revenue.
+
+The Italian regulator also said on March 20 that ChatGPT had experienced a data breach involving "users conversations" and subscriber payments.
+
+AI regulation needed 
+Experts said new regulations were needed to govern AI because of its potential impact on national security, jobs and education.
+
+European consumer group BEUC last week called for EU authorities to investigate ChatGPT and similar AI chatbots. BEUC said it could be years before the EU's AI legislation takes effect, so authorities need to act faster to protect consumers from possible risks.
+
+"In only a few months, we have seen a massive take-up of ChatGPT, and this is only the beginning," Deputy Director General Ursula Pachl said.
+
+She said waiting for the EU's AI Act, "which will happen years from now, is not good enough as there are serious concerns growing about how ChatGPT and similar chatbots might deceive and manipulate people".
+
+ChatGPT is estimated to have reached 100 million monthly active users in January, just two months after launch, making it the fastest-growing consumer application in history, according to a UBS study published last month.

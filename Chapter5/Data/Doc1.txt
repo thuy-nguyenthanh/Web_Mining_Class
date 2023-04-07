@@ -1,0 +1,31 @@
+ChatGPT Is Banned in Italy Over Privacy Concerns
+The action by Italy’s data protection agency is the first known instance of the chatbot’s being blocked by a government order.
+Italy’s data protection authority said OpenAI unlawfully collected personal data from users and did not have an age-verification system in place to prevent minors from being exposed to illicit material.Credit...Susan Wright for The New York Times
+
+The artificial intelligence tool ChatGPT was temporarily banned in Italy on Friday, the first known instance of the chatbot being blocked by a government order.
+
+Italy’s data protection authority said OpenAI, the California company that makes ChatGPT, unlawfully collected personal data from users and did not have an age-verification system in place to prevent minors from being exposed to illicit material.
+
+Italy is the first government to ban ChatGPT as a result of privacy concerns. In China, North Korea, Russia and Iran, the service is unavailable because OpenAI decided not to make it accessible.
+
+Italy’s decision is a sign of the policy challenges emerging for the developers of cutting-edge A.I. after the release of ChatGPT. The program has dazzled users with its ability to draft essays, engage in humanlike conversations and perform more complex tasks like writing computer code, but it has raised alarms about the spread of misinformation, the effects on employment and broader risks to society.
+
+This week, more than 1,000 technology leaders and researchers called for a moratorium on development of the most advanced A.I. systems so that safety policies could be put in place. The Center for A.I. and Digital Policy, an advocacy group pushing for the ethical use of technology, has asked the U.S. Federal Trade Commission to block OpenAI from releasing new commercial versions of ChatGPT.
+
+Image
+A black smartphone displaying ChatGPT.
+The order in Italy is a sign of the policy challenges emerging for the developers of cutting-edge artificial intelligence programs after the release of ChatGPT.Credit...Jackie Molloy for The New York Times
+
+In Italy, regulators have told OpenAI to block internet users in the country from gaining access to ChatGPT until the company turns over additional information. The company has 20 days to provide the agency with the material and possible remedies before a final decision can be made about the future of the product in the country.
+
+Regulators cited a March 20 data breach that exposed conversations and the payment details of some users. The agency said OpenAI could be fined up to 20 million euros (about $22 million) or 4 percent of its worldwide annual revenue.
+
+In a statement, OpenAI said it had disabled ChatGPT for users in Italy and that it was committed to protecting people’s privacy.
+
+“We actively work to reduce personal data in training our A.I. systems like ChatGPT because we want our A.I. to learn about the world, not about private individuals,” the company said. “We also believe that A.I. regulation is necessary.”
+
+As of 5 p.m. on Friday in Italy, word had not yet reached the chatbot that it would be blocked in the country. When asked by a user there if it would be banned in Italy because of privacy concerns, ChatGPT replied, “There should be no concerns.”
+
+“I am an artificial intelligence language model that can be accessed from anywhere in the world as long as there is an internet connection,” the chatbot said.
+
+Emma Bubola contributed reporting.
