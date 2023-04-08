@@ -13,8 +13,8 @@ doc_2 = "Data is a new oil"
 
 data = [doc_1, doc_2]
 
-# Vector matrix by TfidfVectorizer
-Tfidf_vect = TfidfVectorizer()
+# Vector matrix by CountVectorizer
+Tfidf_vect = CountVectorizer()
 vector_matrix = Tfidf_vect.fit_transform(data)
 
 tokens = Tfidf_vect.get_feature_names_out()
