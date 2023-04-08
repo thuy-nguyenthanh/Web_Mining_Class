@@ -1,13 +1,12 @@
 def generate_ngrams(text, n):
-    # Tách các từ trong câu
+    # Tach tu
     words = text.split()
 
-    # Sử dụng hàm zip để tạo các cặp liên tiếp trong danh sách các từ
+    # Su dung ham zip de tach cac cap tu lien tiep trong danh sach cac tu
     ngrams = zip(*[words[i:] for i in range(n)])
 
-    # Sử dụng list comprehension để tạo ra các n-grams
+    # Su dung list comprehension de tao n-grams
     return [" ".join(ngram) for ngram in ngrams]
-
 
 text = "this is a test sentence"
 print(generate_ngrams(text, 2))

@@ -1,15 +1,14 @@
-# -*- coding: utf-8 -*-
 from sklearn.feature_extraction.text import CountVectorizer
 
-# ??u vào là m?t texts bao g?m 2 câu v?n:
+# Dau vao la 2 cau van ban
 Data = ["The quick brown fox jumps over the lazy dog and",
         "Never jump over the lazy dog quickly"]
 
-# Xây d?ng vector TF-IDF
+# Xay dung vector BOW
 vect = CountVectorizer()
 X = vect.fit_transform(Data)
 
-# Xây d?ng t? ?i?n
+# Xay dung tu dien
 dictionary=list(vect.get_feature_names_out())
 
 print("Words in dictionary: ", dictionary)
