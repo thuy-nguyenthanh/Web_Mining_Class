@@ -12,7 +12,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
-import random
 
 # Ham tach tu va chuan hoa
 def tokenize_and_stem(text):
@@ -92,8 +91,8 @@ def Read_Data():
     
     print(Data[:10])
     
-    # Chon 1000 dong du lieu de xu ly
-    Data_sample=Data.sample(1000)
+    # Chon 500 dong du lieu de xu ly
+    Data_sample=Data.sample(500)
     print(Data_sample)
 
     # Convert dataframe to list
@@ -205,23 +204,23 @@ def Presentation_Data(complaints,km,num_clusters):
     
 
 #######################################################################################
-#??c d? li?u
+#Đọc dữ liệu
 complaints=Read_Data()
 
-#Ti?n x? l�
+#Tiền xử lý
 complaints=TextPreprocessing(complaints)
 
-# Tr�ch xu?t ??c tr?ng v?n b?n
+# Trích xuất đặc trưng văn bản
 X, terms= Vectorize_TFIDF(complaints)
 
-# Ch?m ?i?m gi� tr? K c?a thu?t to�n K-Means - Ph??ng ph�p Silhouette Score (?i?m b�ng)
+# Chấm điểm giá trị K của thuật toán K-Means - Phương pháp Silhouette Score (Điểm bóng)
 # Elbow_Score(X)
 Silhouette_Score(X)
 
 
-# Ch?y gi?i thu?t K-Means
+# Chạy thuật toán K-Means
 num_clusters = 8
 km=Run_KMeans(X,num_clusters)
 
-# Bi?u di?n d? li?u
+# Biểu diễn dữ liệu
 Presentation_Data(complaints,km,num_clusters)

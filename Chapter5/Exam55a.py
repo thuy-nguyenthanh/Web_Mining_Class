@@ -1,4 +1,3 @@
-import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.feature_extraction.text import TfidfVectorizer
 import matplotlib.pyplot as plt
