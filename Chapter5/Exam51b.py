@@ -1,6 +1,6 @@
 from sklearn.feature_extraction.text import CountVectorizer
-import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
+import pandas as pd
 
 def create_dataframe(matrix, tokens):
     doc_names = [f'doc_{i+1}' for i, _ in enumerate(matrix)]

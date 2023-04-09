@@ -28,6 +28,6 @@ def bag_of_word(sentence):
         vector.append(count)
     return vector
             
-print("Vector BOW:")
+print("Vector Bag-of-Word:")
 for sentence in texts:
     print(bag_of_word(sentence))

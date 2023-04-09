@@ -12,4 +12,4 @@ X = vect.fit_transform(Data)
 dictionary=list(vect.get_feature_names_out())
 
 print("Words in dictionary: ", dictionary)
-print("Vector TF-IDF: \n", X.toarray())
+print("Vector Bag-of-Word: \n", X.toarray())

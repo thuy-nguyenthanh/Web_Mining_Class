@@ -1,18 +1,25 @@
-from sklearn.feature_extraction.text import CountVectorizer
-from scipy.spatial.distance import euclidean
+from sklearn.feature_extraction.text import CountVectorizer 
 
-texts=['you have no dog', 'no, you have dog', 'you have a dog']
+# Khởi tạo đối tượng CountVectorizer
+# Tham số ngram_range=(1,2) cho biết chúng ta muốn sử dụng N-grams từ 1 đến 2.
+vectorizer = CountVectorizer(ngram_range=(1,2))
 
-# bigram
-bigram = CountVectorizer(ngram_range = (2, 2))
-n1, n2, n3 = bigram.fit_transform(texts).toarray()
+# Tạo ra một list chứa các câu cần biểu diễn
+Data = ["The quick brown fox jumps over the lazy dog and",
+        "Never jump over the lazy dog quickly"]
 
-# trigram
-trigram = CountVectorizer(ngram_range = (3, 3))
-n1, n2, n3 = trigram.fit_transform(texts).toarray()
+# Biểu diễn vector đặc trưng cho các câu
+features = vectorizer.fit_transform(Data)
 
-#Su dung Euclidean de do khoang cach giua cac vector, tim ra do tuong tu giua cac cau
-print(euclidean(n1, n2), euclidean(n2, n3), euclidean(n1, n3))
+# In ra các feature vector tương ứng với các câu
+# Mỗi hàng trong ma trận tương ứng với một câu và mỗi cột tương ứng với một N-gram trong tất cả các câu. Giá trị của mỗi phần tử trong ma trận là số lần xuất hiện của N-gram đó trong câu tương ứng.
+arr=features.toarray()
 
-#--> 2.0 1.0 1.7320508075688772
-#--> Cap cau (n2,n3) co do tuong tu cao nhat
+print("Vocabulary N-gram:")
+# print(sorted(vectorizer.fit(["The quick brown fox jumps over the lazy dog and"]).vocabulary_))
+print(vectorizer.fit(["The quick brown fox jumps over the lazy dog and"]).vocabulary_)
+print(arr[0])
+
+# print(sorted(vectorizer.fit(["Never jump over the lazy dog quickly"]).vocabulary_))
+print(vectorizer.fit(["Never jump over the lazy dog quickly"]).vocabulary_)
+print(arr[1])
