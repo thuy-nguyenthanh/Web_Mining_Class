@@ -1,7 +1,4 @@
 #install and import libraries
-#pip install nltk
-import nltk
-
 #Download nltk libraries
 #nltk.download()
 from nltk.corpus import stopwords

@@ -12,8 +12,9 @@ from nltk.corpus import stopwords
 
 #Read file text
 path=os.path.dirname(__file__)
-f = open(path+r"\textdata.txt", "r", encoding="utf-8")
+f = open(path+r"\data\textdata.txt", "r", encoding="utf-8")
 text=f.read()
+
 #################################
 ######## Text Processing ########
 #################################
