@@ -1,6 +1,7 @@
 #Reference source: https://www.learndatasci.com/glossary/tf-idf-term-frequency-inverse-document-frequency/
 
 # import required module
+# !pip install scikit-learn
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 
